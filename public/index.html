@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>myanki</title>
+	<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+	<header>
+		<h1>📚 myanki</h1>
+		<p class="deck-name" id="deck-name">Loading…</p>
+	</header>
+	<main>
+		<section id="study">
+			<div id="card">
+				<div class="face front">
+					<span class="label">Question</span>
+					<p id="question"></p>
+				</div>
+				<div class="face back hidden" id="back-face">
+					<span class="label">Answer</span>
+					<p id="answer"></p>
+				</div>
+			</div>
+			<div class="actions">
+				<button id="flip" type="button">Show answer</button>
+				<button id="next" type="button" class="hidden">Next card</button>
+			</div>
+		</section>
+
+		<section id="add">
+			<h2>Add a card</h2>
+			<form id="add-form">
+				<label>Question<textarea name="question" required rows="2"></textarea></label>
+				<label>Answer<textarea name="answer" required rows="3"></textarea></label>
+				<label>Tags (comma-separated)<input name="tags" type="text" /></label>
+				<button type="submit">Add card</button>
+				<p id="add-status" role="status"></p>
+			</form>
+		</section>
+
+		<section id="cards">
+			<h2>All cards</h2>
+			<p id="card-count"></p>
+			<ul id="card-list"></ul>
+		</section>
+	</main>
+	<script src="/app.js"></script>
+</body>
+</html>

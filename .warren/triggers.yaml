@@ -1,0 +1,11 @@
+# .warren/triggers.yaml — cron-scheduled runs for this project (R-06).
+# Empty list = no scheduled runs. Add entries as needed. Example shape:
+#
+# - name: nightly-quality-patrol
+#   schedule: "0 3 * * *"   # 03:00 UTC every day
+#   role: nightwatch        # built-in patrol agent
+#   prompt: "Scan for new quality issues; emit a plan if found."
+#
+# See `src/db/repos/triggers.ts` for the validation rules and
+# `src/server/scheduler.ts` for how this is dispatched.
+[]

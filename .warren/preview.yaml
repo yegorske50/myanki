@@ -1,0 +1,16 @@
+# .warren/preview.yaml — per-run preview environment configuration.
+#
+# Disabled by default. Uncomment to enable per-run preview URLs on each PR.
+# Preview envs run via `Bun.serve` against the run's branch, proxy-fronted
+# by warren. See SPEC §11.L / PreviewConfigSchema for the canonical shape.
+#
+# type: server            # only 'server' implemented in V1; 'static' deferred
+# mode: path              # 'path' | 'subdomain'  (WARREN_PREVIEW_MODE wins)
+# command: bun run dev    # The command to launch inside the run's sandbox
+# port: 3000              # The port that command listens on
+# readiness_path: /healthz
+# idle_ttl: 30m           # <number><unit> pairs, units: ms|s|m|h|d
+# max_lifetime: 8h
+#
+# Note: this whole block is commented out (the file is otherwise empty),
+# which the loader treats as "no preview configured" rather than a parse error.

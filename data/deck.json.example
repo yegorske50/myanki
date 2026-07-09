@@ -1,0 +1,41 @@
+{
+  "id": "default",
+  "name": "LeetCode Patterns",
+  "cards": [
+    {
+      "id": "lc-twosum",
+      "question": "Two Sum: given an array and a target, return indices of the two numbers that add up to the target. (LeetCode 1) — what's the optimal time complexity and the trick?",
+      "answer": "O(n) using a hashmap. One pass: for each num, check if (target - num) is in the map. If yes, return those indices. If no, store {num: index}. No nested loop.",
+      "tags": ["arrays", "hash-map"],
+      "createdAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
+      "id": "lc-validparen",
+      "question": "Valid Parentheses: given a string of (), [], {}, determine if all brackets are correctly nested. — what data structure and what's the trick?",
+      "answer": "Use a stack. Push opening brackets. On each closing bracket, pop the top — it must be the matching opener. Valid iff the stack is empty at the end.",
+      "tags": ["stack", "string"],
+      "createdAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
+      "id": "lc-reverseLL",
+      "question": "Reverse a singly linked list iteratively. — describe the three-pointer dance.",
+      "answer": "Three pointers: prev=null, curr=head. While curr!=null: next=curr.next; curr.next=prev; prev=curr; curr=next. Return prev when curr is null.",
+      "tags": ["linked-list"],
+      "createdAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
+      "id": "lc-bfs-vs-dfs",
+      "question": "BFS vs DFS on a tree for finding the shortest path. — why BFS?",
+      "answer": "BFS finds the shortest path in an unweighted graph because it explores level-by-level — the first time you reach a node, that's the shortest number of edges. DFS gives no such guarantee; it commits to depth before breadth.",
+      "tags": ["tree", "graph", "bfs"],
+      "createdAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
+      "id": "lc-twopointers",
+      "question": "Two pointers: when is left+right the right shape vs fast+slow?",
+      "answer": "Left+right narrows from both ends — sorted arrays, palindromes, in-place partitioning. Fast+slow advances at different speeds — cycle detection (Floyd), middle of list, finding kth from end.",
+      "tags": ["two-pointers"],
+      "createdAt": "2026-07-09T00:00:00.000Z"
+    }
+  ]
+}

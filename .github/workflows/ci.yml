@@ -1,0 +1,22 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  check:
+    name: check:all (biome + tsc + bun test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Install deps
+        run: bun install --frozen-lockfile || bun install
+      - name: Lint (biome)
+        run: bun run lint
+      - name: Typecheck (tsc --noEmit)
+        run: bun run typecheck
+      - name: Test (bun test)
+        run: bun test

@@ -1,0 +1,36 @@
+# .warren/config.yaml — per-project warren defaults.
+#
+# All fields optional. See SPEC §11.H / DefaultsConfigSchema in
+# src/warren-config/schema.ts for the canonical field list.
+#
+# Precedence at spawn time:
+#   operator override (per-run, via UI/API)
+#     → this file (project default)
+#     → agent frontmatter (provider/model on the agent)
+#     → built-in tier default
+
+# ── agent defaults ─────────────────────────────────────────────────────
+# Which built-in agent to dispatch by default.
+defaultRole: pi
+
+# Which branch agents fork from (must exist on the project repo).
+defaultBranch: main
+
+# Default provider + model. Override per-run via the UI's "Provider override"
+# field, or per-agent via frontmatter.
+defaultProvider: minimax
+defaultModel: MiniMax-M3
+
+# Free-text pre-fill for the NewRun UI prompt textarea. Leave unset for now.
+
+# ── branch naming ──────────────────────────────────────────────────────
+# Each run's branch ends up as <prefix>/<run.id> (e.g. warren/run_abc123).
+# Must be kebab/snake-case: lowercase, digits, dots, dashes, underscores;
+# no slashes.
+runBranchPrefix: warren
+
+# ── quality gate ───────────────────────────────────────────────────────
+# Canonical green-tree command. Surfaced to agents via $WARREN_QUALITY_GATE
+# so they don't fall back to a guess. MUST mirror CI (bun run check:all →
+# biome lint + tsc --noEmit + bun test).
+qualityGate: bun run check:all

@@ -1,0 +1,27 @@
+# Auto-merge warren-created PRs once CI passes.
+#
+# Only fires for PRs from the repo owner (i.e. bot-authored PRs land via
+# auto-merge; external contributors still need manual review).
+#
+# Use a dedicated PAT (not GITHUB_TOKEN) so the merge commit triggers
+# downstream workflows (CI/CD, Release) — GitHub suppresses GITHUB_TOKEN
+# pushes by design to prevent recursive loops.
+name: auto-merge
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened, synchronize]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  enable-auto-merge:
+    runs-on: ubuntu-latest
+    if: >-
+      !github.event.pull_request.draft &&
+      github.event.pull_request.user.login == github.repository_owner
+    steps:
+      - name: Enable auto-merge (squash)
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_MERGE_PAT }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --squash "$PR_URL"

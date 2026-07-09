@@ -1,0 +1,3 @@
+# This directory holds runtime deck data.
+# Example deck structure is at data/deck.json.example (committed).
+# data/deck.json (the active file) is gitignored to avoid per-user drift.

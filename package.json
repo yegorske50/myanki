@@ -1,0 +1,22 @@
+{
+  "name": "myanki",
+  "version": "0.1.0",
+  "description": "Minimal Anki-style flashcard app for LeetCode problem patterns",
+  "type": "module",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "bun run src/server.ts",
+    "cli": "bun run src/cli.ts",
+    "test": "bun test",
+    "lint": "biome check --error-on-warnings .",
+    "typecheck": "tsc --noEmit",
+    "check:all": "bun run lint && bun run typecheck && bun run test"
+  },
+  "keywords": ["anki", "flashcards", "leetcode", "srs"],
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.10",
+    "@types/bun": "latest",
+    "typescript": "^5.7.0"
+  }
+}

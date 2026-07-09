@@ -1,0 +1,5 @@
+# .plot/ — workspace plot state.
+#
+# Each plot is a long-running workflow (conversation → plan → run → activity)
+# tracked in warren's Plot UI. Plots are created by warren at runtime, not
+# by hand. This .gitkeep reserves the directory for future commits.

@@ -31,6 +31,13 @@
       "createdAt": "2026-07-09T00:00:00.000Z"
     },
     {
+      "id": "lc-hello",
+      "question": "hello",
+      "answer": "world",
+      "tags": ["intro"],
+      "createdAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
       "id": "lc-twopointers",
       "question": "Two pointers: when is left+right the right shape vs fast+slow?",
       "answer": "Left+right narrows from both ends — sorted arrays, palindromes, in-place partitioning. Fast+slow advances at different speeds — cycle detection (Floyd), middle of list, finding kth from end.",
